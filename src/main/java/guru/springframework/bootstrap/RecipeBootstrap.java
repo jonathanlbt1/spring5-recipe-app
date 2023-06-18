@@ -15,9 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Created by jt on 6/13/17.
- */
 @Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
@@ -41,7 +38,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
     private List<Recipe> getRecipes() {
 
-        List<Recipe> recipes = new ArrayList<>(2);
+        List<Recipe> recipes = new ArrayList<>(1);
 
         //get UOMs
         Optional<UnitOfMeasure> eachUomOptional = unitOfMeasureRepository.findByDescription("Each");
@@ -64,21 +61,21 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         Optional<UnitOfMeasure> dashUomOptional = unitOfMeasureRepository.findByDescription("Dash");
 
-//        if(!dashUomOptional.isPresent()){
-//            throw new RuntimeException("Expected UOM Type Dash Not Found");
-//        }
+        if(!dashUomOptional.isPresent()){
+            throw new RuntimeException("Expected UOM Type Dash Not Found");
+        }
 
         Optional<UnitOfMeasure> pintUomOptional = unitOfMeasureRepository.findByDescription("Pint");
 
-//        if(!pintUomOptional.isPresent()){
-//            throw new RuntimeException("Expected UOM Type Pint Not Found");
-//        }
+        if(!pintUomOptional.isPresent()){
+            throw new RuntimeException("Expected UOM Type Pint Not Found");
+        }
 
         Optional<UnitOfMeasure> cupsUomOptional = unitOfMeasureRepository.findByDescription("Cups");
 
-//        if(!cupsUomOptional.isPresent()){
-//            throw new RuntimeException("Expected UOM Types Cup Not Found");
-//        }
+        if(!cupsUomOptional.isPresent()){
+            throw new RuntimeException("Expected UOM Types Cup Not Found");
+        }
 
         //get optionals
         UnitOfMeasure eachUom = eachUomOptional.get();
@@ -154,7 +151,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         //add to return list
         recipes.add(guacRecipe);
 
-        //Yummy Tacos
+
         Recipe tacosRecipe = new Recipe();
         tacosRecipe.setDescription("Spicy Grilled Chicken Taco");
         tacosRecipe.setCookTime(9);
