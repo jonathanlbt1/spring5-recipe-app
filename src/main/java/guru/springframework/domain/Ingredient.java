@@ -2,12 +2,13 @@ package guru.springframework.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+/**
+ * Created by jt on 6/13/17.
+ */
 @Data
 @EqualsAndHashCode(exclude = {"recipe"})
 @Entity
